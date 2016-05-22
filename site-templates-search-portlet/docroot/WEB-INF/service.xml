@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE service-builder PUBLIC "-//Liferay//DTD Service Builder 6.2.0//EN" "http://www.liferay.com/dtd/liferay-service-builder_6_2_0.dtd">
+<service-builder package-path="com.websites.dashboard">
+	<author>liferay</author>
+	<namespace>webEx</namespace>
+
+	<entity name="WebSitesDashboard" local-service="true" remote-service="true" table="websitesdashboard" cache-enabled="true" json-enabled="true" >
+
+		<!-- PK fields -->
+
+		<column name="webId" type="long" primary="true" />
+
+		<!-- Group instance -->
+
+		<column name="groupId" type="long" />
+
+		<!-- Audit fields -->
+
+		<column name="companyId" type="long" />
+		<column name="userId" type="long" />
+		<column name="userName" type="String" />
+		<column name="createDate" type="Date" />
+		<column name="expireDate" type="Date" />
+		<column name="renewDate" type="Date" />
+        
+		<!-- Other fields -->
+
+		<column name="price" type="double" />
+		<column name="active" type="boolean" />
+		<column name="transitionId" type="String" />
+		<column name="status" type="String" />
+		<column name="comments" type="String" />
+		
+
+		<!-- Order -->
+
+		<order by="asc">
+			<order-column name="expireDate" />
+			<order-column name="userId" />
+			<order-column name="active" />
+			<order-column name="status"/>
+		</order>
+		
+		
+		<!-- Finder methods -->
+
+		<finder name="ExpireDate" return-type="Collection">
+			<finder-column name="expireDate" />
+		</finder>
+		
+		<finder name="Active" return-type="Collection">
+			<finder-column name="active" />
+		</finder>
+		
+		<finder name="GroupId" return-type="Collection">
+			<finder-column name="groupId" />
+		</finder>
+		
+	</entity>
+</service-builder>
